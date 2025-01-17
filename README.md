@@ -2,6 +2,8 @@
 
 Wrait is a text editor that uses local, in-browser AI with the [WebLLM](https://webllm.mlc.ai/) technology.
 
+<img width="829" alt="Screenshot 2025-01-16 at 5 04 59 PM" src="https://github.com/user-attachments/assets/fb1e795b-89e3-4cbc-8ffe-e9618136a9e0" />
+
 It depends on support for WebGPU in the browser, so e.g., it doesn't work on Safari.
 
 Online demo: https://editor.yyjhao.com/
