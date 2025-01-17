@@ -1,0 +1,259 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-xs);
+  background: linear-gradient(to bottom,
+      var(--color-surface),
+      var(--color-gray-100));
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  position: relative;
+  width: 100%;
+  max-width: 32rem;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg,
+      var(--color-primary),
+      transparent 40%,
+      transparent 60%,
+      var(--color-primary));
+  border-radius: calc(var(--radius-lg) + 2px);
+  opacity: 0.2;
+  z-index: -1;
+  animation: pulse 2s infinite;
+}
+
+.completed {
+  background: linear-gradient(to bottom,
+      var(--color-surface),
+      var(--color-gray-100));
+  position: relative;
+  padding: var(--spacing-sm);
+}
+
+.completed::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg,
+      var(--color-success),
+      var(--color-secondary) 25%,
+      var(--color-success) 50%,
+      var(--color-secondary) 75%,
+      var(--color-success));
+  border-radius: calc(var(--radius-lg) + 2px);
+  opacity: 0.15;
+  z-index: -1;
+  animation: borderShimmer 3s linear infinite;
+}
+
+.completed::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  z-index: -1;
+}
+
+.progressContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  width: 100%;
+  position: relative;
+  padding: var(--spacing-xxs);
+}
+
+.messageContainer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  padding: var(--spacing-xxs) var(--spacing-lg);
+  background: linear-gradient(to right,
+      transparent,
+      var(--color-surface) 20%,
+      var(--color-surface) 80%,
+      transparent);
+  border-radius: var(--radius-sm);
+  box-shadow:
+    0 0 15px rgba(193, 127, 89, 0.1),
+    inset 0 0 5px rgba(193, 127, 89, 0.2);
+}
+
+.completedMessage {
+  position: static;
+  transform: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  width: 100%;
+}
+
+.completedContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+}
+
+.completedIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-success);
+}
+
+.message {
+  font-family: var(--font-family-heading);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  margin: 0;
+  text-align: center;
+  animation: fadeIn var(--animation-duration-normal);
+  text-shadow: 0 1px 0 var(--color-surface);
+  letter-spacing: 0.02em;
+}
+
+.progress {
+  flex: 1;
+  position: relative;
+  height: 1.75rem;
+}
+
+.runeLeft,
+.runeRight {
+  width: 2rem;
+  height: 2rem;
+  background: linear-gradient(135deg,
+      var(--color-primary),
+      var(--color-primary-hover));
+  border-radius: 50%;
+  opacity: 0.8;
+  position: relative;
+  box-shadow:
+    0 0 10px rgba(193, 127, 89, 0.3),
+    inset 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.runeLeft::before,
+.runeRight::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center,
+      var(--color-surface),
+      var(--color-gray-100));
+  border: 1px solid rgba(193, 127, 89, 0.3);
+}
+
+.runeLeft::after,
+.runeRight::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  opacity: 0.3;
+  animation: runeGlow 2s infinite alternate;
+}
+
+.error {
+  background: linear-gradient(to bottom,
+      var(--color-surface),
+      rgba(139, 69, 19, 0.1));
+  position: relative;
+  padding: var(--spacing-sm);
+}
+
+.error::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg,
+      var(--color-error),
+      transparent 40%,
+      transparent 60%,
+      var(--color-error));
+  border-radius: calc(var(--radius-lg) + 2px);
+  opacity: 0.15;
+  z-index: -1;
+  animation: pulse 2s infinite;
+}
+
+.error::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  z-index: -1;
+}
+
+.errorContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+}
+
+.errorIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-error);
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 0.1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes borderShimmer {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes runeGlow {
+  from {
+    opacity: 0.2;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 0.4;
+    transform: scale(1.1);
+  }
+}

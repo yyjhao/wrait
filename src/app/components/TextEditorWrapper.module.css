@@ -1,0 +1,48 @@
+.content {
+  width: 100%;
+  max-width: 48rem;
+  margin: 0 auto;
+  position: relative;
+
+  .proofReadCard {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.toolbar {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.diffStyle {
+  background: #FFF9C4;
+  color: #7E6E00;
+  padding: 1px 0;
+  margin: -1px 0;
+}
+
+.insertStyle {
+  background: #E8F5E9;
+  color: #1B5E20;
+  padding: 1px 0;
+  margin: -1px 0;
+}
+
+.deleteStyle {
+  background: #FFEBEE;
+  /* Light red */
+  color: #B71C1C;
+  text-decoration: line-through;
+  padding: 1px 0;
+  margin: -1px 0;
+}
+
+.expandingLoading {
+  background-color: #f0f0f0;
+  cursor: progress;
+}
+
+.autoComplete {
+  background-color: var(--color-gray-100);
+}

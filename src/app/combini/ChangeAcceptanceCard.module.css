@@ -1,0 +1,64 @@
+.card {
+  position: relative;
+  transform: translateY(0);
+  transition: all var(--animation-duration-normal);
+  background: linear-gradient(
+    135deg,
+    var(--color-surface) 0%,
+    var(--color-gray-100) 100%
+  );
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    var(--shadow-lg),
+    0 0 20px rgba(193, 127, 89, 0.2);
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(193, 127, 89, 0.1) 50%,
+    transparent 100%
+  );
+  border-radius: var(--radius-md);
+  pointer-events: none;
+}
+
+.changeText {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-md);
+  padding: var(--spacing-md);
+  background: linear-gradient(
+    to bottom,
+    var(--color-gray-100),
+    transparent
+  );
+  border-radius: var(--radius-sm);
+  position: relative;
+}
+
+.changeText::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+
+.acceptButton,
+.rejectButton {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}

@@ -1,0 +1,95 @@
+.panelGroup {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-surface);
+}
+
+.panelGroup[data-panel-group-direction="horizontal"] {
+  flex-direction: row;
+}
+
+.panelGroup[data-panel-group-direction="vertical"] {
+  flex-direction: column;
+}
+
+.panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom right, var(--color-surface), var(--color-gray-100));
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+}
+
+.resizeHandle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  transition: background-color var(--animation-duration-normal);
+}
+
+.resizeHandle[data-panel-group-direction="horizontal"] {
+  width: 8px;
+  margin: 0 -4px;
+  cursor: col-resize;
+}
+
+.resizeHandle[data-panel-group-direction="vertical"] {
+  height: 8px;
+  margin: -4px 0;
+  cursor: row-resize;
+}
+
+.resizeHandle:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.resizeHandle:hover .resizeHandleGrip {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0 0 12px var(--color-primary-hover);
+}
+
+.resizeHandleGrip {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(45deg, var(--color-primary), var(--color-primary-hover));
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: all var(--animation-duration-normal);
+}
+
+.resizeHandleGrip::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 1px solid var(--color-primary-hover);
+  border-radius: 50%;
+  opacity: 0.4;
+}
+
+.gripIcon {
+  color: var(--color-white);
+  opacity: 0.9;
+  transition: transform var(--animation-duration-normal);
+}
+
+.resizeHandle:hover .gripIcon {
+  transform: scale(1.2);
+}
+
+.resizeHandle:active .resizeHandleGrip {
+  background: linear-gradient(45deg, var(--color-primary-active), var(--color-primary));
+  transform: scale(0.95);
+}

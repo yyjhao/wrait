@@ -1,0 +1,52 @@
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Gap Variations */
+.gap-none { gap: 0; }
+.gap-xxs { gap: var(--spacing-xxs); }
+.gap-xs { gap: var(--spacing-xs); }
+.gap-sm { gap: var(--spacing-sm); }
+.gap-md { gap: var(--spacing-md); }
+.gap-lg { gap: var(--spacing-lg); }
+.gap-xl { gap: var(--spacing-xl); }
+.gap-xxl { gap: var(--spacing-xxl); }
+
+/* Alignment */
+.align-start { align-items: flex-start; }
+.align-center { align-items: center; }
+.align-end { align-items: flex-end; }
+.align-stretch { align-items: stretch; }
+
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+.justify-stretch { justify-content: stretch; }
+
+/* When justify or align is stretch, children get equal sizing */
+.justify-stretch > * {
+  flex: 1;
+}
+
+.align-stretch > * {
+  align-self: stretch;
+}
+
+/* Padding Variations */
+.rowPadding {
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+}
+
+.columnPadding {
+  padding-top: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+}

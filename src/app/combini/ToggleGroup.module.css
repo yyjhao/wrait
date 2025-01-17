@@ -1,0 +1,44 @@
+.toggleGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  position: relative;
+}
+
+/* Add a subtle decorative line between items */
+.toggleGroup::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-border),
+    transparent
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Vertical orientation support */
+.toggleGroup[data-orientation='vertical'] {
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+/* Vertical decorative line */
+.toggleGroup[data-orientation='vertical']::before {
+  width: 1px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-border),
+    transparent
+  );
+}

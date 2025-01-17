@@ -1,0 +1,37 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to bottom,
+      var(--color-background),
+      color-mix(in srgb, var(--color-background) 95%, var(--color-surface)));
+}
+
+.footer {
+  margin-top: auto;
+}
+
+.progressBar {
+  margin: 0 auto;
+  margin-top: var(--spacing-xl);
+}
+
+.content {
+  width: 100%;
+  max-width: 48rem;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.toolbar {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.editor {
+  min-height: calc(100vh - 12rem);
+}
+
+@media (max-width: 768px) {
+  .editor {
+    min-height: calc(100vh - 8rem);
+  }
+}

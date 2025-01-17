@@ -1,0 +1,46 @@
+.avatar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--color-gray-200), var(--color-gray-100));
+  box-shadow: var(--shadow-sm),
+    0 0 0 2px var(--color-surface),
+    0 0 0 4px var(--color-primary);
+  overflow: hidden;
+  transition: transform var(--animation-duration-normal),
+    box-shadow var(--animation-duration-normal);
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-md),
+    0 0 0 2px var(--color-surface),
+    0 0 0 4px var(--color-primary-hover),
+    0 0 15px var(--color-primary);
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.avatarFallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

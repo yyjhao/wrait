@@ -1,0 +1,246 @@
+.command {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  max-height: 24rem;
+  overflow: hidden;
+}
+
+.commandInDialog {
+  border: none;
+  box-shadow: none;
+}
+
+.CommandDialogContent {
+  padding: 0;
+  margin: 0;
+  max-height: 80vh;
+  max-width: 32rem;
+  background: linear-gradient(to bottom, var(--color-gray-100), var(--color-surface));
+  border: 2px solid var(--color-primary);
+  box-shadow: 0 0 20px rgba(193, 127, 89, 0.2);
+}
+
+.cmdkInputWrapper {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: linear-gradient(to right, var(--color-gray-100), var(--color-surface));
+}
+
+.cmdkInputWrapperSearchIcon {
+  color: var(--color-text-secondary);
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  margin-right: var(--spacing-sm);
+}
+
+.cmdkInput {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  outline: none;
+  padding: var(--spacing-xs) 0;
+}
+
+.cmdkInput::placeholder {
+  color: var(--color-text-disabled);
+}
+
+.commandList {
+  overflow-y: auto;
+  padding: var(--spacing-xs);
+}
+
+.commandEmpty {
+  padding: var(--spacing-lg);
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-base);
+  font-style: italic;
+}
+
+.commandGroup {
+  position: relative;
+  padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+.commandGroup [cmdk-group-heading] {
+  user-select: none;
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  padding: var(--spacing-xs) var(--spacing-md);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.commandSeparator {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-border),
+    transparent
+  );
+  margin: var(--spacing-xs) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.commandSeparator::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-primary),
+    transparent
+  );
+  animation: shimmer 3s infinite;
+}
+
+.commandItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md);
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  transition: all var(--animation-duration-normal);
+  overflow: hidden;
+}
+
+.commandItem::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    var(--color-primary-hover),
+    transparent
+  );
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: transform var(--animation-duration-normal);
+}
+
+.commandItem:hover {
+  color: var(--color-white);
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-primary-hover)
+  );
+}
+
+.commandItem:hover::before {
+  opacity: 0.2;
+  transform: translateX(100%);
+}
+
+.commandItem[aria-selected="true"] {
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-primary-hover)
+  );
+  color: var(--color-white);
+  box-shadow: inset 0 0 0 1px var(--color-primary-hover);
+}
+
+.commandItem[aria-selected="true"]::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--color-white);
+  box-shadow: 0 0 8px var(--color-primary);
+}
+
+.commandItem[aria-disabled="true"] {
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+.commandItem svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  color: var(--color-text-secondary);
+  transition: all var(--animation-duration-normal);
+}
+
+.commandItem:hover svg {
+  transform: scale(1.1);
+  color: var(--color-white);
+}
+
+.commandItem[aria-selected="true"] svg {
+  color: var(--color-white);
+  filter: drop-shadow(0 0 4px var(--color-primary));
+}
+
+.commandShortcut {
+  margin-left: auto;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-monospace);
+  padding: var(--spacing-xxs) var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  background: var(--color-gray-100);
+  transition: all var(--animation-duration-normal);
+}
+
+.commandItem:hover .commandShortcut {
+  background: var(--color-primary-active);
+  color: var(--color-white);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.commandList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.commandList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.commandList::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.commandList::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}

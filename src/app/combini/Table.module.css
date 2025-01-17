@@ -1,0 +1,84 @@
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  margin: var(--spacing-md) 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-family-base);
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-surface),
+    var(--color-gray-100) 100%
+  );
+}
+
+.tableHeader {
+  background: var(--color-gray-800);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.tableHead {
+  padding: var(--spacing-md);
+  text-align: left;
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  font-size: var(--font-size-sm);
+}
+
+.tableBody {
+  background: transparent;
+}
+
+.tableRow {
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color var(--animation-duration-fast);
+}
+
+.tableBody .tableRow:hover {
+  background-color: var(--color-gray-100);
+}
+
+.tableCell {
+  padding: var(--spacing-md);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+}
+
+.tableFooter {
+  background-color: var(--color-gray-100);
+  border-top: 2px solid var(--color-border);
+}
+
+.tableFooter .tableCell {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-secondary);
+}
+
+.tableCaption {
+  padding: var(--spacing-md);
+  caption-side: bottom;
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-sm);
+  font-style: italic;
+}
+
+/* Ensure the last row doesn't have a border */
+.tableBody .tableRow:last-child {
+  border-bottom: none;
+}
+
+/* Add subtle right border to cells except the last one */
+.tableCell:not(:last-child),
+.tableHead:not(:last-child) {
+  border-right: 1px solid var(--color-border);
+}

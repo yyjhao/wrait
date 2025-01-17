@@ -1,0 +1,63 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+  position: relative;
+}
+
+.editor {
+  padding: var(--spacing-lg);
+  min-height: 200px;
+  color: var(--color-text-primary);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-lg);
+}
+
+.editor :global(.ProseMirror) {
+  outline: none;
+}
+
+.editor :global(.ProseMirror p) {
+  margin: var(--spacing-sm) 0;
+}
+
+.editor :global(.ProseMirror h1),
+.editor :global(.ProseMirror h2),
+.editor :global(.ProseMirror h3),
+.editor :global(.ProseMirror h4),
+.editor :global(.ProseMirror h5),
+.editor :global(.ProseMirror h6) {
+  font-family: var(--font-family-heading);
+  color: var(--color-text-primary);
+  margin: var(--spacing-lg) 0 var(--spacing-sm);
+}
+
+.editor :global(.ProseMirror ul),
+.editor :global(.ProseMirror ol) {
+  padding-left: var(--spacing-xl);
+  margin: var(--spacing-sm) 0;
+}
+
+.editor :global(.ProseMirror blockquote) {
+  border-left: 3px solid var(--color-primary);
+  margin: var(--spacing-md) 0;
+  padding-left: var(--spacing-md);
+  color: var(--color-text-secondary);
+}
+
+.editor :global(.ProseMirror a) {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.editor :global(.ProseMirror a:hover) {
+  text-decoration: underline;
+}
+
+.editor :global(.ProseMirror code) {
+  font-family: var(--font-family-monospace);
+  background-color: var(--color-gray-100);
+  padding: 0.2em 0.4em;
+  border-radius: var(--radius-sm);
+}

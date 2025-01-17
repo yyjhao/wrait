@@ -1,0 +1,92 @@
+.root {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  width: 44px;
+  height: 24px;
+  background: linear-gradient(to right, var(--color-gray-300), var(--color-gray-200));
+  border: 1px solid var(--color-border);
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: inset 0 2px 4px var(--color-shadow);
+  transition: all var(--animation-duration-normal);
+}
+
+.root::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 32px;
+  background: linear-gradient(45deg, transparent 95%, var(--color-primary) 100%);
+  opacity: 0;
+  transition: opacity var(--animation-duration-normal);
+}
+
+.root:hover {
+  background: linear-gradient(to right, var(--color-gray-400), var(--color-gray-300));
+}
+
+.root:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.root[data-state="checked"] {
+  background: linear-gradient(to right, var(--color-primary), var(--color-primary-hover));
+  border-color: var(--color-primary-active);
+}
+
+.root[data-state="checked"]::before {
+  opacity: 1;
+}
+
+.root[data-state="checked"]:hover {
+  background: linear-gradient(to right, var(--color-primary-hover), var(--color-primary));
+  box-shadow: 0 0 10px rgba(193, 127, 89, 0.3);
+}
+
+.thumb {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: var(--color-white);
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--animation-duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(2px);
+  will-change: transform;
+  position: relative;
+}
+
+.thumb::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(45deg, var(--color-gray-300), var(--color-gray-200));
+  border-radius: 50%;
+  opacity: 0.5;
+  transition: all var(--animation-duration-normal);
+}
+
+.root[data-state="checked"] .thumb {
+  transform: translateX(22px);
+}
+
+.root[data-state="checked"] .thumb::before {
+  background: linear-gradient(45deg, var(--color-primary), var(--color-primary-hover));
+  opacity: 1;
+  box-shadow: 0 0 8px var(--color-primary);
+}
+
+.root:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

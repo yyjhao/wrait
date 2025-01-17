@@ -1,0 +1,80 @@
+.progress {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to right, var(--color-gray-100), var(--color-gray-200), var(--color-gray-100));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  height: 1.5rem;
+  box-shadow: var(--shadow-sm), inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(193, 127, 89, 0.05) 10px,
+    rgba(193, 127, 89, 0.05) 20px
+  );
+  pointer-events: none;
+}
+
+.indicator {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-primary-hover),
+    var(--color-warning)
+  );
+  transition: transform var(--animation-duration-normal) cubic-bezier(0.65, 0, 0.35, 1);
+  box-shadow: 0 0 10px rgba(193, 127, 89, 0.3);
+}
+
+.indicator::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+.progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

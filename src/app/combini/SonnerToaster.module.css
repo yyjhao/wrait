@@ -1,0 +1,86 @@
+.toast {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+  width: 360px;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xxs);
+}
+
+.description {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+}
+
+.actionButton {
+  background: linear-gradient(to bottom, var(--color-primary-hover), var(--color-primary));
+  color: var(--color-white);
+  border: none;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-heading);
+  cursor: pointer;
+  transition: all var(--animation-duration-normal);
+}
+
+.actionButton:hover {
+  background: linear-gradient(to bottom, var(--color-primary), var(--color-primary-hover));
+  box-shadow: 0 0 15px rgba(193, 127, 89, 0.3);
+}
+
+.cancelButton {
+  background: linear-gradient(to bottom, var(--color-secondary-hover), var(--color-secondary));
+  color: var(--color-white);
+  border: none;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-heading);
+  cursor: pointer;
+  transition: all var(--animation-duration-normal);
+}
+
+.cancelButton:hover {
+  background: linear-gradient(to bottom, var(--color-secondary), var(--color-secondary-hover));
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: var(--spacing-xxs);
+  border-radius: var(--radius-sm);
+  transition: color var(--animation-duration-normal);
+}
+
+.closeButton:hover {
+  color: var(--color-text-primary);
+}
+
+.toast:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.actionButton:focus-visible,
+.cancelButton:focus-visible,
+.closeButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

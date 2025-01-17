@@ -1,0 +1,119 @@
+.content {
+  padding: var(--spacing-md);
+  background: linear-gradient(
+    to bottom,
+    var(--color-surface),
+    var(--color-gray-100)
+  );
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+  box-shadow: var(--shadow-lg),
+    0 0 20px rgba(193, 127, 89, 0.2);
+  max-width: 32rem;
+  animation-duration: var(--animation-duration-normal);
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 50;
+  transform-origin: var(--radix-hover-card-content-transform-origin);
+  position: relative;
+  overflow: hidden;
+}
+
+.content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 98%, var(--color-primary) 100%);
+  pointer-events: none;
+}
+
+.content::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(193, 127, 89, 0.1) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  animation: rotate 10s linear infinite;
+}
+
+.content[data-state='open'][data-side='top'] {
+  animation-name: unfurlDown;
+}
+
+.content[data-state='open'][data-side='bottom'] {
+  animation-name: unfurlUp;
+}
+
+.content[data-state='open'][data-side='left'] {
+  animation-name: unfurlRight;
+}
+
+.content[data-state='open'][data-side='right'] {
+  animation-name: unfurlLeft;
+}
+
+@keyframes unfurlUp {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes unfurlDown {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes unfurlLeft {
+  from {
+    opacity: 0;
+    transform: translateX(0.5rem) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes unfurlRight {
+  from {
+    opacity: 0;
+    transform: translateX(-0.5rem) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,40 @@
+.editorButton {
+  position: relative;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-secondary);
+  transition: all var(--animation-duration-fast) ease-in-out;
+  min-width: 6rem;
+  /* Add display flex to ensure proper alignment */
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.editorButton:hover {
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.editorButton:active {
+  transform: translateY(0);
+}
+
+.shortcut {
+  padding: var(--spacing-xxs) var(--spacing-xs);
+  font-family: var(--font-family-monospace);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  background-color: var(--color-gray-100);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-sm);
+  /* Remove margin since we're using gap */
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.spinner {
+  color: var(--color-text-secondary);
+}

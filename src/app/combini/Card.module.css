@@ -1,0 +1,52 @@
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 0;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 98%, var(--color-primary) 100%);
+  border-radius: var(--radius-md);
+  pointer-events: none;
+}
+
+.cardHeader {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+  background: linear-gradient(to bottom, var(--color-gray-100), transparent);
+}
+
+.cardTitle {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+.cardDescription {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-md);
+}
+
+.cardContent {
+  padding: var(--spacing-md);
+  background: var(--color-surface);
+}
+
+.cardFooter {
+  padding: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+  background: linear-gradient(to top, var(--color-gray-100), transparent);
+}

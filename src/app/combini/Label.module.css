@@ -1,0 +1,24 @@
+.label {
+  display: inline-block;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-bold);
+  padding: var(--spacing-xxs) 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.label:hover {
+  color: var(--color-primary);
+}
+
+.label:active {
+  color: var(--color-primary-active);
+}
+
+.label:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}

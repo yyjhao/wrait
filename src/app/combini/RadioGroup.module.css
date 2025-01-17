@@ -1,0 +1,81 @@
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.item {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  background: var(--color-surface);
+  cursor: pointer;
+  position: relative;
+  transition: all var(--animation-duration-normal);
+}
+
+.item:hover {
+  background: var(--color-gray-100);
+  box-shadow: 0 0 8px rgba(193, 127, 89, 0.2);
+}
+
+.item:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 0;
+}
+
+.indicatorInner {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  transform: scale(0);
+  transition: transform var(--animation-duration-normal) ease-out;
+}
+
+.item[data-state="checked"] .indicatorInner {
+  transform: scale(1);
+  animation: glow var(--animation-duration-slow) ease-in-out;
+}
+
+.item[data-state="checked"] {
+  border-color: var(--color-primary);
+  background: var(--color-gray-100);
+}
+
+.item[data-disabled] {
+  cursor: not-allowed;
+  border-color: var(--color-text-disabled);
+  background: var(--color-gray-100);
+}
+
+.item[data-disabled] .indicatorInner {
+  background: var(--color-text-disabled);
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 0 0 var(--color-primary);
+  }
+  50% {
+    box-shadow: 0 0 8px 2px var(--color-primary);
+  }
+  100% {
+    box-shadow: 0 0 0 0 var(--color-primary);
+  }
+}

@@ -1,0 +1,100 @@
+.content,
+.subContent {
+  min-width: 12rem;
+  padding: var(--spacing-xs);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  animation: scaleIn var(--animation-duration-fast) ease-out;
+}
+
+.item,
+.checkboxItem,
+.radioItem,
+.subTrigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  outline: none;
+  transition: all var(--animation-duration-fast);
+}
+
+.item[data-disabled],
+.checkboxItem[data-disabled],
+.radioItem[data-disabled],
+.subTrigger[data-disabled] {
+  color: var(--color-text-disabled);
+  pointer-events: none;
+}
+
+.item[data-highlighted],
+.checkboxItem[data-highlighted],
+.radioItem[data-highlighted],
+.subTrigger[data-highlighted] {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.checkboxItemIndicator,
+.radioItemIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--spacing-sm);
+}
+
+.checkIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.radioIndicatorCircle {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.label {
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-secondary);
+}
+
+.separator {
+  height: 1px;
+  margin: var(--spacing-xs);
+  background-color: var(--color-border);
+}
+
+.shortcut {
+  margin-left: auto;
+  padding-left: var(--spacing-md);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.chevronRightIcon {
+  width: 1rem;
+  height: 1rem;
+  margin-left: auto;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
