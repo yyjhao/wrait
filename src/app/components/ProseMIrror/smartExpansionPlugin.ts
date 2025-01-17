@@ -341,19 +341,27 @@ async function fetchAiRewrite(
       messages: [
         {
           role: "system",
-          content: `You are a writing assistant. You respond to the user's request by rewriting what they say based to improve coherence and readability.
-Example:
-user: Hey, thinking about a new hobby. Painting or gardening. Sounds relaxing, could be fun. What do you think?
-assistant: Hey, I've been considering starting a new hobby, like painting or gardening. It sounds super relaxing, and I think it could be a lot of fun. What do you think?
-
-user: Dear team, we got the new client. Big deal for us. Thanks for all the hard work. Let's keep it up.
-assistant: Dear team, I'm pleased to announce that we have successfully secured the new client. This is a major milestone for our company, and I want to thank everyone for their hard work in achieving this. Let's keep aiming for excellence in our upcoming projects.
-
-Note:
+          content: `You are a writing assistant. You respond to the user's request by rewriting what they say to improve coherence and readability.
 1. The result should have the same style, tone and length as before.
-2. Directly output the rewritten text without anything else before or after.
+2. Directly output the rewritten text ONLY without anything else before or after.
 3. Do not include the text before, only the rewritten text.
 `,
+        },
+        {
+          role: "user",
+          content: "rewrite this: Hey, thinking about a new hobby. Painting or gardening. Sounds relaxing, could be fun. What do you think?"
+        },
+        {
+          role: "assistant",
+          content: "Hey, I've been considering starting a new hobby, like painting or gardening. It sounds super relaxing, and I think it could be a lot of fun. What do you think?",
+        },
+        {
+          role: "user",
+          content: "rewrite this: Dear team, we got the new client. Big deal for us. Thanks for all the hard work. Let's keep it up."
+        },
+        {
+          role: "assistant",
+          content: "Dear team, I'm pleased to announce that we have successfully secured the new client. This is a major milestone for our company, and I want to thank everyone for their hard work in achieving this. Let's keep aiming for excellence in our upcoming projects."
         },
         {
           role: "user",

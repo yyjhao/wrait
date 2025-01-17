@@ -215,17 +215,13 @@ async function proofReadBlock(view: EditorView, from: number, to: number) {
       stream: true,
       messages: [
         {
-          role: "system",
-          content: `You are an LLM that excels at performing tasks exactly as specified.`,
-        },
-        {
           role: "user",
           content: `Proof read the text after --- and output a version with only spelling, grammatical, spacing and word-use mistakes fixed.
 Note:
 1. Only correct words that are wrong. Improvement is not asked for.
 2. Maintain the original tone and style.
 3. Do not add new lines.
-3. Only output the corrected text without anything else before or after.
+4. Only output the corrected text without anything else before or after.
 ---
 ${selectedText}`,
         },

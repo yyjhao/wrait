@@ -77,12 +77,8 @@ export async function performAutoComplete(view: EditorView) {
       stream: true,
       messages: [
         {
-          role: "system",
-          content: `You are an LLM that excels at performing tasks exactly as specified.`,
-        },
-        {
           role: "user",
-          content: `Help me finish this text, only respond with the continuation without the prompt or anything else, add space at the beginning if needed: ${prefix}`,
+          content: `Help me finish this text, only respond with the continuation without the prompt or anything else before or after, add space at the beginning if needed: ${prefix}`,
         },
       ],
       temperature: 0.2,
@@ -285,7 +281,7 @@ export function getAutoCompleteDerivedState(state: EditorState): {
       autoComplete?.type === "progressing" || autoComplete?.type === "starting"
         ? "autoCompleting"
         : autoComplete
-          ? "waiting"
-          : "idle",
+        ? "waiting"
+        : "idle",
   };
 }
