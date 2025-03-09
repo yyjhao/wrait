@@ -1,7 +1,0 @@
-@import 'combini/CombiniSetup.css';
-
-:link,
-:visited {
-  color: var(--color-text-primary);
-  text-decoration: none;
-}

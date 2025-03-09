@@ -1,0 +1,80 @@
+.editorContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+  position: relative;
+}
+
+.editorInner {
+  padding: var(--spacing-lg);
+  min-height: 200px;
+  color: var(--color-text-primary);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-lg);
+}
+
+.editorInner :global(.ProseMirror) {
+  outline: none;
+}
+
+.editorInner :global(.ProseMirror p) {
+  margin: var(--spacing-sm) 0;
+}
+
+.editorInner :global(.ProseMirror h1),
+.editorInner :global(.ProseMirror h2),
+.editorInner :global(.ProseMirror h3),
+.editorInner :global(.ProseMirror h4),
+.editorInner :global(.ProseMirror h5),
+.editorInner :global(.ProseMirror h6) {
+  font-family: var(--font-family-heading);
+  color: var(--color-text-primary);
+  margin: var(--spacing-lg) 0 var(--spacing-sm);
+}
+
+.editorInner :global(.ProseMirror ul),
+.editorInner :global(.ProseMirror ol) {
+  padding-left: var(--spacing-xl);
+  margin: var(--spacing-sm) 0;
+}
+
+.editorInner :global(.ProseMirror blockquote) {
+  border-left: 3px solid var(--color-primary);
+  margin: var(--spacing-md) 0;
+  padding-left: var(--spacing-md);
+  color: var(--color-text-secondary);
+}
+
+.editorInner :global(.ProseMirror a) {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.editorInner :global(.ProseMirror a:hover) {
+  text-decoration: underline;
+}
+
+.editorInner :global(.ProseMirror code) {
+  font-family: var(--font-family-monospace);
+  background-color: var(--color-gray-100);
+  padding: 0.2em 0.4em;
+  border-radius: var(--radius-sm);
+}
+
+.content {
+  width: 100%;
+  max-width: 48rem;
+  margin: 0 auto;
+  position: relative;
+
+  .proofReadCard {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.toolbar {
+  border-bottom: 1px solid var(--color-border);
+}

@@ -1,0 +1,106 @@
+.tabsList {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 2px solid var(--color-border);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--color-gray-100);
+  position: relative;
+}
+
+.tabsList::-webkit-scrollbar {
+  height: 6px;
+}
+
+.tabsList::-webkit-scrollbar-track {
+  background: var(--color-gray-100);
+  border-radius: var(--radius-sm);
+}
+
+.tabsList::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+
+.tabsTrigger {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  background: transparent;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  position: relative;
+  cursor: pointer;
+  transition: all var(--animation-duration-normal);
+  white-space: nowrap;
+}
+
+.tabsTrigger::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transition: transform var(--animation-duration-normal);
+}
+
+.tabsTrigger:hover {
+  color: var(--color-primary);
+}
+
+.tabsTrigger:hover::before {
+  transform: scaleX(0.5);
+}
+
+.tabsTrigger[data-state="active"] {
+  color: var(--color-primary);
+  transform: translateY(-2px) scale(1.05);
+  background: linear-gradient(
+    to bottom,
+    rgba(193, 127, 89, 0.15),
+    rgba(193, 127, 89, 0.05)
+  );
+  box-shadow: 0 4px 8px rgba(193, 127, 89, 0.15);
+}
+
+.tabsTrigger[data-state="active"]::before {
+  transform: scaleX(1);
+  box-shadow: 0 0 12px var(--color-primary);
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-primary-hover)
+  );
+}
+
+.tabsTrigger[data-state="active"]::after {
+  content: none;
+}
+
+.tabsTrigger[data-disabled] {
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-gray-100),
+    transparent
+  );
+}
+
+.tabsTrigger[data-disabled]::before,
+.tabsTrigger[data-disabled]::after {
+  display: none;
+}
+
+.tabsContent {
+  color: var(--color-text-primary);
+  outline: none;
+}
+
+.tabsContent[data-state="inactive"] {
+  display: none;
+}

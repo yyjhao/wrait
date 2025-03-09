@@ -1,0 +1,208 @@
+@layer base {
+  .container {
+    height: 100%;
+    width: 100%;
+    padding-top: var(--spacing-md);
+  }
+  
+  .container :global(.recharts-cartesian-axis-tick text) {
+    fill: var(--color-text-secondary);
+  }
+  
+  .container :global(.recharts-cartesian-grid line[stroke='#ccc']) {
+    stroke: color-mix(in srgb, var(--color-border) 50%, transparent);
+  }
+  
+  .container :global(.recharts-curve.recharts-tooltip-cursor) {
+    stroke: var(--color-border);
+  }
+  
+  .container :global(.recharts-dot[stroke='#fff']) {
+    stroke: transparent;
+  }
+  
+  .container :global(.recharts-layer) {
+    outline: none;
+  }
+  
+  .container :global(.recharts-polar-grid[stroke='#ccc']) {
+    stroke: var(--color-border);
+  }
+  
+  .container :global(.recharts-radial-bar-background-sector) {
+    fill: var(--color-gray-200);
+  }
+  
+  .container :global(.recharts-rectangle.recharts-tooltip-cursor) {
+    fill: var(--color-gray-200);
+  }
+  
+  .container :global(.recharts-reference-line[stroke='#ccc']) {
+    stroke: var(--color-border);
+  }
+  
+  .container :global(.recharts-sector[stroke='#fff']) {
+    stroke: transparent;
+  }
+  
+  .container :global(.recharts-sector) {
+    outline: none;
+  }
+  
+  .container :global(.recharts-surface) {
+    outline: none;
+  }
+  
+  .tooltip {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    font-family: var(--font-family-base);
+  }
+  
+  .tooltip::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 98%, var(--color-primary) 100%);
+    border-radius: var(--radius-md);
+    pointer-events: none;
+  }
+  
+  .tooltipLabel {
+    color: var(--color-text-secondary);
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xs);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .tooltipItems {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .tooltipItem {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-text-primary);
+  }
+  
+  .tooltipItemIndicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  
+  .tooltipItemIndicator-dot {
+    background-color: var(--color-bg);
+  }
+  
+  .tooltipItemIndicator-line {
+    width: 16px;
+    height: 2px;
+    background-color: var(--color-bg);
+  }
+  
+  .tooltipItemIndicator-dashed {
+    width: 16px;
+    height: 2px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--color-bg),
+      var(--color-bg) 2px,
+      transparent 2px,
+      transparent 4px
+    );
+  }
+  
+  .tooltipItemIndicator-nested-dashed {
+    width: 16px;
+    height: 2px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--color-bg),
+      var(--color-bg) 2px,
+      transparent 2px,
+      transparent 4px
+    );
+  }
+  
+  .tooltipItemLabel {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex: 1;
+  }
+  
+  .tooltipItemLabel-nested {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .tooltipItemLabel-center {
+    align-items: center;
+  }
+  
+  .tooltipItemLabelContent {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tooltipItemLabelText {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+  }
+  
+  .tooltipItemValue {
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-sm);
+  }
+  
+  .legend {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm);
+  }
+  
+  .legend-top {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .legend-bottom {
+    margin-top: var(--spacing-md);
+  }
+  
+  .legendItem {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    font-family: var(--font-family-base);
+    padding: var(--spacing-xxs) var(--spacing-xs);
+    border-radius: var(--radius-sm);
+    transition: background-color var(--animation-duration-fast);
+  }
+  
+  .legendItem:hover {
+    background-color: var(--color-gray-100);
+  }
+  
+  .legendItemIcon {
+    width: 12px;
+    height: 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+  }
+}

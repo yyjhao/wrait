@@ -1,0 +1,37 @@
+@keyframes collapsible-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-collapsible-content-height);
+  }
+}
+
+@keyframes collapsible-up {
+  from {
+    height: var(--radix-collapsible-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.trigger {
+  cursor: pointer;
+  display: block;
+  appearance: none;
+  border: none;
+  background: transparent;
+}
+
+.content {
+  overflow: hidden;
+}
+
+.content[data-state="open"] {
+  animation: collapsible-down var(--animation-duration-fast) ease-out;
+}
+
+.content[data-state="closed"] {
+  animation: collapsible-up var(--animation-duration-fast) ease-out;
+}

@@ -1,0 +1,22 @@
+.diffStyle {
+  background: #fff9c4;
+  color: #7e6e00;
+  padding: 1px 0;
+  margin: -1px 0;
+}
+
+.insertStyle {
+  background: #e8f5e9;
+  color: #1b5e20;
+  padding: 1px 0;
+  margin: -1px 0;
+}
+
+.deleteStyle {
+  background: #ffebee;
+  /* Light red */
+  color: #b71c1c;
+  text-decoration: line-through;
+  padding: 1px 0;
+  margin: -1px 0;
+}
